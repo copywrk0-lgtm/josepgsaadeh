@@ -3,5 +3,32 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm ci"
+  "installCommand": "npm ci",
+  "redirects": [
+    {
+      "source": "/stories/river-light/:path*",
+      "destination": "/stories/beneath-the-trees/",
+      "permanent": false
+    },
+    {
+      "source": "/stories/a-quiet-afternoon/:path*",
+      "destination": "/stories/the-wedding-day/",
+      "permanent": false
+    },
+    {
+      "source": "/stories/together-in-emerald/:path*",
+      "destination": "/stories/wedding-moments/",
+      "permanent": false
+    },
+    {
+      "source": "/stories/before-the-vows/:path*",
+      "destination": "/stories/the-wedding-day/",
+      "permanent": false
+    },
+    {
+      "source": "/stories/under-the-trees/:path*",
+      "destination": "/stories/beneath-the-trees/",
+      "permanent": false
+    }
+  ]
 }

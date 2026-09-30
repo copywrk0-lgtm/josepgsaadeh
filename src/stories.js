@@ -1,10 +1,36 @@
-export const stories=[
- {slug:'river-light',title:'River light',category:'Couple story',cover:3,photos:[0,2,3,4,8,11],description:'A boat, an open sky, and an afternoon with nowhere else to be. A collection of quiet glances and easy laughter on the water.',note:'The water gives these photographs their rhythm. Reflections, open space, and the warmth of red against the landscape carry the story.'},
- {slug:'a-quiet-afternoon',title:'A quiet afternoon',category:'Couple story',cover:6,photos:[1,5,6,7,12,13],description:'A book shared in the grass. The light settling over the hills. Small moments that feel entirely their own.',note:'Gentle colours leave room for expression. Close portraits sit beside wider frames, letting the landscape become part of the memory.'},
- {slug:'together-in-emerald',title:'Together in emerald',category:'Celebration',cover:19,photos:[17,18,19,20,21,22],description:'Rich emerald, bright courtyards, and a little movement between the still frames. A celebration of being together.',note:'The repeating arches frame the couple, while the jewel tones bring the collection together. A balance of composed portraits and spontaneous moments.'},
- {slug:'before-the-vows',title:'Before the vows',category:'Wedding portrait',cover:25,photos:[23,24,25],description:'The final quiet moments before a new chapter. Window light, embroidered details, and a portrait worth keeping.',note:'A small portrait collection centred on light and detail. Soft curtains and deep reds give each frame its own sense of anticipation.'},
- {slug:'under-the-trees',title:'Under the trees',category:'Couple story',cover:30,photos:[26,27,28,29,30],description:'A walk beneath the trees. Pale flowers, deep green, and a story told at an unhurried pace.',note:'The canopy becomes a natural backdrop. Wider compositions hold the setting, while the closer frames stay with the people.'}
+export const stories = [
+ {slug:'beneath-the-trees',title:'Beneath the trees',category:'Wedding',cover:2,photos:[0,1,2,3,4],description:'A wedding portrait collection beneath the trees. Warm light, a white bouquet, and the moments shared between two people.',note:'Photographs by Joseph Saadeh.'},
+ {slug:'the-wedding-day',title:'The wedding day',category:'Wedding',cover:7,photos:[5,6,7,8,9],description:'From the quiet preparations to the church and the journey together. A selection of portraits and details from the wedding day.',note:'Photographs by Joseph Saadeh.'},
+ {slug:'wedding-moments',title:'Wedding moments',category:'Selected weddings',cover:12,photos:[10,11,12,13,14],description:'A selection from Joseph’s wedding photography. Bridal portraits, church architecture, evening light and the little moments in between.',note:'A curated collection from different shoots.'},
+ {slug:'a-small-beginning',title:'A small beginning',category:'Baptism',cover:15,photos:[15,16,17,18,19],description:'A baptism remembered through family, faith and the smallest details. Gentle portraits sit alongside the ceremony and its setting.',note:'Photographs by Joseph Saadeh.'}
 ];
-export const films=[{title:'A day to remember',aspect:'854 / 480',duration:'04:35',caption:'Wedding film · 4 minutes 35 seconds'},{title:'The moments between',aspect:'960 / 540',duration:'01:44',caption:'Wedding highlights · 1 minute 44 seconds'},{title:'A promise, in motion',aspect:'1 / 1',duration:'00:50',caption:'Wedding highlights · 50 seconds'},{title:'Under the trees',aspect:'4 / 5',duration:'00:05',caption:'Motion portrait · 5 seconds'}];
-export const edits=[{photo:3,alt:'Couple sitting together in a boat',name:'River light',treatment:'WARM FILM',filter:'sepia(.28) saturate(.85) contrast(1.08) brightness(.97)',caption:'Warmth in the quiet moments.'},{photo:6,alt:'Couple sharing a quiet afternoon outdoors',name:'A quiet afternoon',treatment:'MONOCHROME',filter:'grayscale(1) contrast(1.15) brightness(.95)',caption:'Less colour. More expression.'},{photo:19,alt:'Couple in emerald outfits beside courtyard arches',name:'Together in emerald',treatment:'DEEP COLOUR',filter:'saturate(1.4) contrast(1.12) brightness(.88)',caption:'A little depth in the jewel tones.'},{photo:31,alt:'Couple in lilac and pale colours in the landscape',name:'A lilac afternoon',treatment:'SOFT FILM',filter:'sepia(.16) saturate(.72) contrast(.88) brightness(1.07)',caption:'Light, softened around the edges.'}];
-export const photoURL=id=>`/assets/photo-${String(id).padStart(2,'0')}.jpg`;
+export const films = [
+ {title:'A wedding, remembered',aspect:'16 / 9',duration:'00:18',caption:'Wedding highlights · 18 seconds'},
+ {title:'Together, in golden light',aspect:'16 / 9',duration:'00:36',caption:'Wedding highlights · 36 seconds'},
+ {title:'A celebration of faith',aspect:'9 / 16',duration:'01:04',caption:'Baptism film · 1 minute 4 seconds'},
+ {title:'The people closest to us',aspect:'9 / 16',duration:'01:30',caption:'Baptism film · 1 minute 30 seconds'}
+];
+export const collections = {weddings:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],baptisms:[15,16,17,18,19],events:[],food:[]};
+export const photoAlt = [
+ 'Bride and groom sharing a kiss beneath the trees',
+ 'Wedding bouquet and the couple’s hands',
+ 'Bride and groom smiling at each other',
+ 'Wedding portrait among wooden chairs and trees',
+ 'Bride and groom embracing beneath the trees',
+ 'Bride and groom beside their wedding car',
+ 'Groom portrait beneath the bride’s veil',
+ 'Bride and groom standing together in a brick church',
+ 'Bridal portrait in soft window light',
+ 'A collection of bridal preparations and jewellery details',
+ 'Bridal portrait inside a church',
+ 'Wedding portraits reflected in a car window',
+ 'Bride and groom beneath an evening sky',
+ 'Wedding portraits framed by church columns',
+ 'Couple silhouetted against a colourful evening sky',
+ 'Baby dressed for a baptism',
+ 'Flowers and decorations at a baptism celebration',
+ 'A close view of the baptism ceremony',
+ 'Baby lying on a white blanket in baptism clothing',
+ 'Baby at the altar during the baptism ceremony'
+];
+export const photoURL = id => `/assets/joseph-photo-${String(id).padStart(2,'0')}.jpg`;
