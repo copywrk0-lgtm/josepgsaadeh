@@ -1,0 +1,17 @@
+{
+  "name": "joseph-saadeh-concept",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node generate-stories.mjs && esbuild src/main.js --bundle --minify --format=esm --outfile=dist/main.js",
+    "preview": "python3 -m http.server 8000 --directory dist"
+  },
+  "dependencies": {
+    "three": "^0.180.0",
+    "gsap": "^3.13.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

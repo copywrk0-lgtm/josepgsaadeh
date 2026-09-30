@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const b=fs.readFileSync('dist/assets/camera.glb');
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'',res,rej));
+const root=gltf.scene; for(const name of ["hotshoeattachment_GRP","FILMnotANIM_GRP"]){const o=root.getObjectByName(name);if(o)o.removeFromParent()} root.updateMatrixWorld(true);const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());root.position.sub(center);const group=new THREE.Group();group.add(root);group.scale.setScalar(5.1/Math.max(size.x,size.y,size.z));group.rotation.y=-.35;group.updateMatrixWorld(true);
+const cam=new THREE.PerspectiveCamera(34,1.5,.1,100);cam.position.set(3.2,2.2,10);cam.lookAt(0,0,0);cam.updateMatrixWorld();
+const project=(v)=>{v.project(cam);return [(v.x+1)*600,(1-v.y)*400,v.z]};const meshes=[];
+root.traverse(m=>{if(!m.isMesh)return;const p=m.geometry.attributes.position,idx=m.geometry.index;const faces=[];for(let i=0;i<(idx?idx.count:p.count);i+=3){const f=[];for(let j=0;j<3;j++){let v=new THREE.Vector3().fromBufferAttribute(p,idx?idx.getX(i+j):i+j).applyMatrix4(m.matrixWorld);f.push(project(v))}faces.push(f)}const e=new THREE.EdgesGeometry(m.geometry,23).attributes.position;const edges=[];for(let i=0;i<e.count;i+=2)edges.push([project(new THREE.Vector3().fromBufferAttribute(e,i).applyMatrix4(m.matrixWorld)),project(new THREE.Vector3().fromBufferAttribute(e,i+1).applyMatrix4(m.matrixWorld))]);const pos=new THREE.Box3().setFromObject(m).getCenter(new THREE.Vector3());meshes.push({faces,edges,depth:pos.distanceTo(cam.position)});});
+fs.writeFileSync('/tmp/camera-poster-data.json',JSON.stringify(meshes.sort((a,b)=>b.depth-a.depth)));console.log({size:size.toArray(),meshes:meshes.length});
